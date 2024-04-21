@@ -2,22 +2,18 @@
 
 Welcome to my data analyst portfolio repository! This repository showcases my projects, analyses, and visualizations in the field of data analysis. Each project demonstrates my skills in data manipulation, exploratory data analysis, statistical analysis, and data visualization.
 
-## Projects
-
-### ### Project 1: Airbnb Market and Amenities Analysis
-- Description: Conducted comprehensive analysis of Airbnb market and amenities data to uncover trends, patterns, and insights, facilitating strategic decision-making and optimization.
-- Tools Used: SQL
-
 
 ## How to Use
-
-1. Clone the Repository:
-
-
-2. Navigate to a Project Directory:
+1. Navigate to PortfolioProjects Respository
 
 
-3. Follow the Instructions in the Project's README for Setup and Usage.
+2. Clone the Repository:
+
+
+3. Navigate to a Project Directory:
+
+
+4. Follow the Instructions in the Project's README for Setup and Usage.
 
 ## About Me
 
