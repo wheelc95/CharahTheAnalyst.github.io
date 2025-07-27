@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charah Wheeler | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <!-- Social Media Links -->
+    <div class="social-media">
+        <a href="https://www.linkedin.com/in/charah-wheeler-1421a4128/" target="_blank" aria-label="LinkedIn">
+            <img src="assets/images/linkedin.svg" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://github.com/wheelc95" target="_blank" aria-label="GitHub">
+            <img src="assets/images/github.svg" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/@BullCityInsights" target="_blank" aria-label="YouTube">
+            <img src="assets/images/youtube.svg" alt="YouTube" class="social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@bull.city.insights" target="_blank" aria-label="TikTok">
+            <img src="assets/images/tiktok.svg" alt="TikTok" class="social-icon">
+        </a>
+    </div>
+
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
+
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item active" aria-current="page">Home</li>
+                    <li class="sidebar-item">Projects</li>
+                    <li class="sidebar-item">About</li>
+                    <li class="sidebar-item">Contact</li>
+                </ul>
+            </nav>
+
+            <section class="sidebar-section toolkit">
+                <h3>Toolkit</h3>
+                <div class="toolkit-list">
+                    <img src="assets/images/powerbi.svg" alt="Power BI" title="Power BI" class="toolkit-item">
+                    <img src="assets/images/python.svg" alt="Python" title="Python" class="toolkit-item">
+                    <img src="assets/images/sql.png" alt="SQL" title="SQL" class="toolkit-item">
+                    <img src="assets/images/excel.svg" alt="Excel" title="Excel" class="toolkit-item">
+                    <img src="assets/images/html.svg" alt="HTML" title="HTML" class="toolkit-item">
+                    <img src="assets/images/css.svg" alt="CSS" title="CSS" class="toolkit-item">
+                    <img src="assets/images/javascript.svg" alt="JavaScript" title="JavaScript" class="toolkit-item">
+                </div>
+            </section>
+
+            <a href="assets/resume/Charah_Wheeler_Resume.pdf" class="btn btn-download" download>Download Resume</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="main-heading">Data Pro with Dev Chops</h1>
+            </header>
+
+            <section class="welcome-section">
+                <p class="subtitle">Building Dashboards, Insights, and Custom Tools</p>
+                <p class="description">
+                    I design data-driven solutions and build custom tools for supply chain and business operations. From automating workflows in Excel and developing analytics apps in Python, to creating interactive dashboards in Power BI, I help organizations optimize processes and uncover actionable insights.
+                </p>
+            </section>
+
+            <section class="project-slider">
+                <div class="slider">
+
+                    <!-- Slide #1 -->
+                    <div class="slide active">
+                        <img src="assets/images/lss1.png"
+                             alt="Lean Six Sigma DMAIC Toolkit">
+                        <p class="slide-caption">Lean Six Sigma DMAIC Toolkit</p>
+                    </div>
+                    <!-- Slide #2 -->
+                    <div class="slide">
+                        <img src="assets/images/us-job-market1.png"
+                             alt="US Job Market Project Screenshot">
+                        <p class="slide-caption">Power BI US Job Market Overview (2023) Dashboard</p>
+                    </div>
+                </div>
+
+                <div class="slider-actions">
+                    <div class="slider-controls">
+                        <button class="prev-slide" aria-label="Previous Slide">&#10094;</button>
+                        <button class="next-slide" aria-label="Next Slide">&#10095;</button>
+                    </div>
+                    <a href="#projects" class="btn btn-view-projects">View All Projects</a>
+                </div>
+            </section>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const slides = document.querySelectorAll('.project-slider .slide');
+                    let idx = 0;
+
+                    function show(i) {
+                        slides.forEach((slide, j) =>
+                            slide.classList.toggle('active', j === i)
+                        );
+                    }
+
+                    document.querySelector('.next-slide').addEventListener('click', () => {
+                        idx = (idx + 1) % slides.length;
+                        show(idx);
+                    });
+
+                    document.querySelector('.prev-slide').addEventListener('click', () => {
+                        idx = (idx - 1 + slides.length) % slides.length;
+                        show(idx);
+                    });
+                });
+            </script>
+
+
+        </main>
+    </div>
+
+    <!-- Avatar Guide Overlay -->
+    <div class="spotlight-overlay" id="spotlight">
+        <div class="avatar-guide">
+            <img src="assets/images/avatar.png" alt="Charah Avatar" class="avatar">
+            <div class="speech-bubble">
+                <p>Hi, I’m Charah! Let me guide you through my portfolio. 👋</p>
+                <div class="bubble-buttons">
+                    <button id="startTourBtn" class="btn-bubble">Start Tour</button>
+                    <button id="skipTourBtn" class="btn-bubble">Skip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="modal-slider">
+                <button class="modal-prev">&#10094;</button>
+                <img id="modalImage" src="" alt="Project Screenshot">
+                <button class="modal-next">&#10095;</button>
+            </div>
+            <div class="modal-text">
+                <h2 id="modalSlideTitle">Slide Title</h2>
+                <p id="modalSlideDescription">Slide description will appear here.</p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
