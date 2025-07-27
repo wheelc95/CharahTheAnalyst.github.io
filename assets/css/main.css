@@ -1,0 +1,846 @@
+﻿/* ===========================
+   Reset & Base Styles
+=========================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfaf5;
+    color: #333;
+    line-height: 1.6;
+}
+
+    html.no-scroll, body.no-scroll {
+        overflow: hidden; /* Hide scrollbars */
+        height: 100%; /* Lock height */
+        width: 100%; /* Lock width */
+        position: fixed; /* Freeze scroll position */
+        touch-action: none; /* Prevent touch scroll */
+        overscroll-behavior: none; /* Prevent bouncing */
+    }
+
+/* ===========================
+   Social Media Buttons
+=========================== */
+.social-media {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    gap: 30px;
+    z-index: 1000;
+}
+
+    .social-media a {
+        display: inline-block;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .social-media img {
+        width: 25px;
+        height: 25px;
+        display: block;
+    }
+
+    .social-media a:hover {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+/* ===========================
+   Container Layout
+=========================== */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+.sidebar {
+    background-color: #19535f;
+    color: #fff;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .sidebar nav ul {
+        list-style: none;
+    }
+
+.sidebar-item {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
+    margin: 30px 0;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .sidebar-item:hover,
+    .sidebar-item.active {
+        background-color: #f58220;
+        color: #fff;
+    }
+
+/* ===========================
+   Toolkit Section
+=========================== */
+.sidebar-section {
+    background: linear-gradient(145deg, #17474f, #19535f);
+    margin-top: 70px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .sidebar-section:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-section h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #f58220;
+        text-align: center;
+        border-bottom: 2px solid #f58220;
+        padding-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+.toolkit-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.toolkit-item {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .toolkit-item:hover {
+        transform: scale(1.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+/* ===========================
+   Buttons
+=========================== */
+.btn,
+.btn-bubble {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 10px 16px;
+    text-decoration: none;
+    background-color: #f58220;
+    color: #fff;
+}
+
+    .btn:hover,
+    .btn-bubble:hover {
+        background-color: #e76f00;
+        transform: translateY(-2px);
+    }
+
+    .btn:focus {
+        outline: 2px dashed #f58220;
+        outline-offset: 4px;
+    }
+
+.btn-download {
+    margin-top: 200px;
+}
+
+.btn-bubble {
+    background-color: #f58220;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+/* ===========================
+   Main Content
+=========================== */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: left;
+}
+
+.main-heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #19535f;
+    font-weight: 700;
+}
+
+.welcome-section {
+    padding-top: 10px;
+    margin-top: -160px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: #555;
+    margin-top: -30px;
+    margin-bottom: 15px;
+}
+
+.description {
+    max-width: 900px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* ===========================
+   Project Slider
+=========================== */
+.project-slider {
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.slider {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.slide {
+    display: none;
+    animation: fade 0.6s ease-in-out;
+}
+
+    .slide.active {
+        display: block;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+
+.slide-caption {
+    background-color: rgba(25, 83, 95, 0.85);
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.slider-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+    .slider-controls button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #19535f;
+        transition: transform 0.2s ease, color 0.3s ease;
+    }
+
+        .slider-controls button:hover {
+            color: #f58220;
+            transform: scale(1.2);
+        }
+
+.btn-view-projects {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+}
+
+/* ===========================
+   Avatar Guide
+=========================== */
+.avatar-guide {
+    position: fixed;
+    bottom: -10px;
+    left: 360px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 9999; /* Always above overlay */
+}
+
+.speech-bubble {
+    background: #19535f; /* branded dark teal */
+    color: #ffffff;      /* white text */
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    font-size: 1.05rem;
+    font-weight: 500;
+    max-width: 350px;
+    margin-left: -50px;     /* ✅ keeps original left position */
+    margin-bottom: 280px;   /* ✅ keeps original bottom position */
+    position: relative;
+    text-align: left;
+}
+
+.speech-bubble .bubble-buttons {
+    display: flex;
+    justify-content: center; /* ✅ center buttons horizontally */
+    gap: 10px; /* ✅ space between buttons */
+    margin-top: 12px; /* ✅ space between text and buttons */
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -10px;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #19535f transparent transparent transparent; /* matches bubble */
+    transform: rotate(315deg);
+}
+
+
+
+/* === Speech bubble on the left === */
+.speech-bubble.left {
+    margin-left: -550px; /* shift to the right of avatar */
+    margin-right: -50px; /* optional: adjust spacing */
+}
+
+/* === Triangle moves to right when bubble is on left === */
+.speech-bubble.left::after {
+    left: auto;          /* remove left positioning */
+    right: -10px;        /* move to right side */
+    transform: rotate(-315deg); /* point tail back toward avatar */
+}
+
+
+
+.avatar {
+    width: 250px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ===========================
+   Spotlight Overlay
+=========================== */
+.spotlight-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95); /* Dim entire page */
+    z-index: 5000; /* Below avatar & bubble */
+    display: none;
+    pointer-events: auto;
+    -webkit-mask: none; /* 👈 Disable spotlight mask initially */
+    mask: none;
+    transition: mask 0.4s ease, -webkit-mask 0.4s ease, background 0.4s ease;
+}
+
+    .spotlight-overlay.active {
+        display: block;
+    }
+
+    .spotlight-overlay.has-mask {
+        /* Enable spotlight mask for later steps */
+        -webkit-mask: radial-gradient( circle var(--spotlight-radius, 0px) at var(--spotlight-x, 50%) var(--spotlight-y, 50%), transparent 0%, black 100% );
+        mask: radial-gradient( circle var(--spotlight-radius, 0px) at var(--spotlight-x, 50%) var(--spotlight-y, 50%), transparent 0%, black 100% );
+    }
+
+/* ===========================
+   Projects Grid
+=========================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 🟧 Exactly 3 columns */
+    gap: 25px; /* Space between cards */
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 15px;
+}
+
+    .project-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+        font-size: 1.2rem;
+        color: #19535f;
+        margin: 10px 0 6px;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 12px;
+    }
+
+    .project-card .btn {
+        display: inline-block;
+        background-color: #f58220;
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .project-card .btn:hover {
+            background-color: #e76f00;
+            transform: scale(1.05);
+        }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+/* ✅ Make it responsive */
+@media (max-width: 1000px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
+
+
+/* ===========================
+   About Section Styling
+=========================== */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%; /* Circular image */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.about-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-text li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+    position: relative;
+    padding-left: 25px;
+}
+
+.about-text li::before {
+    content: "✔";
+    color: #f58220; /* Orange accent */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* ===========================
+   Contact Section Styling
+=========================== */
+.contact-section {
+    width: 100%; /* Allow it to fill the page */
+    max-width: 1000px; /* Limit max width for readability */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+}
+
+
+.contact-form {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* 🟧 Take full parent width */
+    max-width: unset; /* 🟧 Remove max-width constraint */
+    padding: 40px;
+    margin: 0 auto; /* Center it in the section */
+}
+
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #19535f;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Stretch fields full width of form */
+    padding: 14px 16px; /* Slightly larger for wide layout */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #f58220;
+    outline: none;
+}
+
+.contact-form .btn {
+    display: inline-block;
+    background-color: #f58220;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form .btn:hover {
+    background-color: #e76f00;
+    transform: scale(1.05);
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: #555;
+    margin-top: 150px; /* 🟧 Add space above subtitle */
+    margin-bottom: 30px; /* 🟧 Push it further from the next element */
+}
+
+/* ===========================
+   Modal Styles
+=========================== */
+/* Modal base styles (already have this) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .close-btn:hover {
+        color: #000;
+    }
+
+/* Slider styles */
+.modal-slider {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.modal-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal-prev,
+.modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.modal-prev {
+    left: 10px;
+}
+
+.modal-next {
+    right: 10px;
+}
+
+    .modal-prev:hover,
+    .modal-next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }
+.modal-slider-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+.modal-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.modal-slide {
+    display: none;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+    .modal-slide.active {
+        display: block;
+    }
+
+.modal-prev,
+.modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(25, 83, 95, 0.7);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.modal-prev {
+    left: 10px;
+}
+
+.modal-next {
+    right: 10px;
+}
+
+    .modal-prev:hover,
+    .modal-next:hover {
+        background-color: #f58220;
+    }
+
+#modalImage {
+    max-width: 100%;
+    max-height: 60vh; /* Limits height to 60% of viewport height */
+    object-fit: contain; /* Keeps the whole image visible without distortion */
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+.modal-content {
+    width: 85%; /* make it wider, close to full viewport width */
+    max-width: 1000px; /* increase max width */
+    max-height: 100vh; /* allow taller height, almost full viewport height */
+    padding: 30px 40px; /* add some padding for spacing */
+    overflow-y: auto; /* enable vertical scroll if content overflows */
+    border-radius: 12px;
+    text-align: center;
+    background-color: #fff; /* keep white background */
+    margin: 5% auto; /* vertically center with a bit of margin */
+    /* Add flex and column direction for better layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modalSlideDescription {
+    text-align: left;
+}
+
+
+/* ===========================
+   Animations
+=========================== */
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ===========================
+   Hamburger Menu (Mobile)
+=========================== */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #19535f;
+    color: white;
+    font-size: 1.8rem;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    z-index: 1100;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #19535f;
+        z-index: 1050;
+        padding-top: 60px;
+        flex-direction: column;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+        .sidebar.open {
+            display: flex;
+        }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .avatar-guide {
+        display: none;
+    }
+
+    .social-media {
+        top: 10px;
+        right: 10px;
+        gap: 20px;
+    }
+
+        .social-media img {
+            width: 20px;
+            height: 20px;
+        }
+}
